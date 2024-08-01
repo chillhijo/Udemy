@@ -48,4 +48,25 @@ test.only('Client App login', async ({page})=> {
     await orderCountry.pressSequentially("Bosnia");
     await countryDropdown.waitFor();
     await countryDropdown.locator("button").click();
+
+    //Verify email and submit order
+    expect (page.locator(".user__name [type='text']").first()).toHaveText("duskokona93@gmail.com");
+    await page.locator(".action__submit").click();
+
+    expect (page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
+
+    //Get the orderId
+    const orderId = [];
+    await page.waitForSelector(".em-spacer-1 .ng-star-inserted");
+    const itemId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    console.log(itemId);
+   
+    // for(const item of itemId) {
+    //     const id = await item.textContent();
+    //     // console.log('ExtractedID: ${id}');
+    //     orderId.push(id);
+    // }
+
+    // console.log("Item IDs: ", orderId);
+
 });
