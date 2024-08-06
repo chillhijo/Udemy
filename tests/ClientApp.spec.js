@@ -60,6 +60,20 @@ test.only('Client App login', async ({page})=> {
     await page.waitForSelector(".em-spacer-1 .ng-star-inserted");
     const itemId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
     console.log(itemId);
+
+    //Confirm order from Order history
+    await page.locator("button[routerlink*='myorders']").click();
+
+    const ordersId = await page.locator("tbody tr");
+
+    for(let i = 0; i < await ordersId.count(); i++) {
+        const rowOrderId = await ordersId.nth(i).locator("th").textContent();
+
+        if(orderId.includes(rowOrderId)) {
+            await ordersId.nth(i).locator("button").first().click();
+            break;
+        }
+    }
    
     // for(const item of itemId) {
     //     const id = await item.textContent();
