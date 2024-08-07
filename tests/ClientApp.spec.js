@@ -63,6 +63,7 @@ test.only('Client App login', async ({page})=> {
 
     //Confirm order from Order history
     await page.locator("button[routerlink*='myorders']").click();
+    await page.locator("tbody").waitFor();
 
     const ordersId = await page.locator("tbody tr");
 
@@ -75,6 +76,12 @@ test.only('Client App login', async ({page})=> {
         }
     }
    
+    //Order detailes
+    const orderIdDetailes = await page.locator(".col-text").textContent();
+    expect(orderId.includes(orderIdDetailes)).toBeTruthy();
+
+
+
     // for(const item of itemId) {
     //     const id = await item.textContent();
     //     // console.log('ExtractedID: ${id}');
