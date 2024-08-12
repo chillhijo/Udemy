@@ -53,24 +53,26 @@ test.only('Client App login', async ({page})=> {
     expect (page.locator(".user__name [type='text']").first()).toHaveText("duskokona93@gmail.com");
     await page.locator(".action__submit").click();
 
-    expect (page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
+    //Verify thank you order message
+    const thankYou = page.locator(".hero-primary");
+    expect (thankYou).toHaveText(" Thankyou for the order. ");
 
-    //Get the orderId
-    const orderId = [];
+    //Get the orderId and store it
     await page.waitForSelector(".em-spacer-1 .ng-star-inserted");
     const itemId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
     console.log(itemId);
 
     //Confirm order from Order history
     await page.locator("button[routerlink*='myorders']").click();
+    await page.waitForLoadState('networkidle');
     await page.locator("tbody").waitFor();
 
     const ordersId = await page.locator("tbody tr");
 
     for(let i = 0; i < await ordersId.count(); i++) {
-        const rowOrderId = await ordersId.nth(i).locator("th").textContent();
+        const rowOrderId = (await ordersId.nth(i).locator("th").textContent()).trim();
 
-        if(orderId.includes(rowOrderId)) {
+        if(itemId.includes(rowOrderId)) {
             await ordersId.nth(i).locator("button").first().click();
             break;
         }
