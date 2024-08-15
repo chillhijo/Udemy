@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { text } from 'stream/consumers';
 
-test.only('Client App login', async ({page})=> {
+test('Client App login', async ({page})=> {
     await page.goto("https://rahulshettyacademy.com/client");
 
     const userName = page.locator("#userEmail");
