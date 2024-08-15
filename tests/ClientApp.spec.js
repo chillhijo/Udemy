@@ -50,12 +50,12 @@ test.only('Client App login', async ({page})=> {
     await countryDropdown.locator("button").click();
 
     //Verify email and submit order
-    expect (page.locator(".user__name [type='text']").first()).toHaveText("duskokona93@gmail.com");
+    await expect (page.locator(".user__name [type='text']").first()).toHaveText("duskokona93@gmail.com");
     await page.locator(".action__submit").click();
 
     //Verify thank you order message
     const thankYou = page.locator(".hero-primary");
-    expect (thankYou).toHaveText(" Thankyou for the order. ");
+    await expect (thankYou).toHaveText(" Thankyou for the order. ");
 
     //Get the orderId and store it
     await page.waitForSelector(".em-spacer-1 .ng-star-inserted");
@@ -80,7 +80,7 @@ test.only('Client App login', async ({page})=> {
    
     //Order detailes
     const orderIdDetailes = await page.locator(".col-text").textContent();
-    expect(orderId.includes(orderIdDetailes)).toBeTruthy();
+    await expect(itemId.includes(orderIdDetailes)).toBeTruthy();
 
 
 
