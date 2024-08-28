@@ -17,18 +17,19 @@ class APIutils {
 
     async createOrder(orderPayload) {
         let response = {};
-        response.loginToken = await this.getToken();
+        response.token = await this.getToken();
         const orderResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
             {data: orderPayload,
             headers: {
-                'Authorization' : response.loginToken,
+                'Authorization' : response.token,
                 'Content-ype' : 'application/json'
             }});
         const orderResponseJson = await orderResponse.json();
         console.log(orderResponseJson);
         const orderId = orderResponseJson.orders[0];
         response.orderId = orderId;
-        return orderId;
+        console.log(response);
+        return response;
     }
 
 }
