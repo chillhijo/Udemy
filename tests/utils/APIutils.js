@@ -1,20 +1,36 @@
 class APIutils {
 
-    constructor(apiContext) {
+    constructor(apiContext, loginPayload) {
         this.apiContext = apiContext;
+        this.loginPayload = loginPayload;
     }
 
     async getToken() {
-        const apiContext = await request.newContext();
-        const loginResponse = await apiContext.post(
+        const loginResponse = await this.apiContext.post(
             "https://rahulshettyacademy.com/api/ecom/auth/login", 
-            {data: loginPayload});
-        expect(loginResponse.ok()).toBeTruthy();
-        
+            {data: this.loginPayload});
         const loginResponseJson = await loginResponse.json();
-        loginToken = loginResponseJson.token;
+        const loginToken = loginResponseJson.token;
+        console.log(loginToken);
         return loginToken;
-        console.log(loginToken);  
+    }
+
+    async createOrder(orderPayload) {
+        let response = {};
+        response.loginToken = await this.getToken();
+        const orderResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
+            {data: orderPayload,
+            headers: {
+                'Authorization' : response.loginToken,
+                'Content-ype' : 'application/json'
+            }});
+        const orderResponseJson = await orderResponse.json();
+        console.log(orderResponseJson);
+        const orderId = orderResponseJson.orders[0];
+        response.orderId = orderId;
+        return orderId;
     }
 
 }
+
+module.exports = {APIutils};
