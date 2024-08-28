@@ -5,9 +5,9 @@ test('mmc login', async ({ page }) => {
     await page.waitForLoadState('networkidle');
 
     //login modal form
-    const loginModalVisible = await page.locator('.ng-pristine.ng-invalid.ng-touched').isVisible();
-    const tenantDropdown = await page.locator('.p-dropdown.p-component').isVisible();
-    const defaultTenant = await page.getByText('Default tenant/personality id').isVisible();
+    await page.locator('.ng-pristine.ng-invalid.ng-touched').isVisible();
+    await page.locator('.p-dropdown.p-component').isVisible();
+    await page.getByText('Default tenant/personality id').isVisible();
     const loginNameInput = page.locator('input[formcontrolname = "loginName"]');
     const passwordInput = page.locator('input[formcontrolname = "password"]');
     const loginButton = page.locator('button:has-text("Login")');
