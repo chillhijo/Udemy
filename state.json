@@ -1,0 +1,105 @@
+{
+  "cookies": [
+    {
+      "name": "freemotionSocketUrl",
+      "value": "ws://10.29.10.25:19191",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1756459216,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "scSocketUrl",
+      "value": "ws://10.29.10.25:19191",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1756459216,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "loginname",
+      "value": "DUSKO.PRALICA",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1756459218,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tenant",
+      "value": "9997",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1756459218,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "confirmed",
+      "value": "true",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1756459218,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "flex",
+      "value": "false",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "freemotionLoginUsr",
+      "value": "{\"iv\":\"FBsUjxrKgFpIjRgOplOdSg\",\"v\":1,\"iter\":1000,\"ks\":128,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"wfyYtQqHNCs\",\"ct\":\"6oWMH1x5N6Rrw6aLa2nxaOy2l3Wg\"}",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1725009618,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "freemotionLoginPwd",
+      "value": "{\"iv\":\"iSKmcqFSq8mWQorXeeXbjA\",\"v\":1,\"iter\":1000,\"ks\":128,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"wfyYtQqHNCs\",\"ct\":\"0a5+DGjcLz+/\"}",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1725009618,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "freemotionLoginTenant",
+      "value": "{\"iv\":\"0jPBBTY2ZBHnRwcz1a2GaQ\",\"v\":1,\"iter\":1000,\"ks\":128,\"ts\":64,\"mode\":\"ccm\",\"adata\":\"\",\"cipher\":\"aes\",\"salt\":\"wfyYtQqHNCs\",\"ct\":\"ocgU0hPyPk9i0UgW\"}",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1725009618,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "freemotionCryptoWord",
+      "value": "Success",
+      "domain": "10.29.10.25",
+      "path": "/",
+      "expires": 1725009618,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

@@ -1,6 +1,6 @@
 import {test, expect} from "@playwright/test";
 
-test('mmc login', async ({ page }) => {
+test('mmc login', async ({ page, context }) => {
     await page.goto("http://10.29.10.25/managementcenter/#/");
     await page.waitForLoadState('networkidle');
 
@@ -41,4 +41,6 @@ test('mmc login', async ({ page }) => {
 
     //home page header
     await expect(page.locator('#portal-title')).toHaveText("Management Center");
+
+    await context.storageState({path: 'state.json'});
 })
